@@ -1,0 +1,380 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitZone | Gym & Fitness Centre</title>
+
+    <link rel="stylesheet" href="Css/style.css">
+    <script src="Js/acript.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#home" class="logo">FitZone<span>.</span></a>
+
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#workouts">Workouts</a>
+                <a href="#classes">Classes</a>
+                <a href="#membership">Membership</a>
+                <a href="#bmi">BMI Calculator</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <button id="themeToggle" type="button">🌙 Theme</button>      
+        </nav>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="tagline">YOUR FITNESS JOURNEY STARTS HERE</p>
+
+            <h1>Build Your Body.<br>
+                <span>Transform Your Life.</span>
+            </h1>
+
+            <p>Train smarter, stay consistent and become
+                the strongest version of yourself.</p>
+
+            <a href="#membership" class="btn">Join Our Gym</a>
+            <a href="#workouts" class="btn btn-outline">Explore Workouts</a>
+        </div>
+    </section>
+
+
+    <!-- DASHBOARD -->
+    <section class="section" id="dashboard">
+        <div class="section-heading">
+            <p class="tagline">YOUR PROGRESS</p>
+            <h2>Fitness Dashboard</h2>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <h3 id="workoutCount">0</h3>
+                <p>Completed Workouts</p>
+            </div>
+
+            <div class="card">
+                <h3 id="bookingCount">0</h3>
+                <p>Class Bookings</p>
+            </div>
+
+            <div class="card">
+                <h3 id="membershipStatus">None</h3>
+                <p>Membership Status</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- WORKOUTS -->
+    <section class="section" id="workouts">
+        <div class="section-heading">
+            <p class="tagline">TRAIN WITH PURPOSE</p>
+            <h2>Workout Programs</h2>
+            <p>Choose a workout and track your progress.</p>
+        </div>
+
+        <div class="card-grid">
+
+            <div class="card workout-card">
+                <h3>Beginner Workout</h3>
+                <p>Start your fitness journey with basic exercises.</p>
+                <p><strong>Duration:</strong> 20 minutes</p>
+
+                <button class="btn finish-workout"
+                    data-workout="Beginner Workout" type="button">
+                    Complete Workout
+                </button>
+            </div>
+
+            <div class="card workout-card">
+                <h3>Strength Training</h3>
+                <p>Build strength with a structured training routine.</p>
+                <p><strong>Duration:</strong> 40 minutes</p>
+
+                <button class="btn finish-workout"
+                    data-workout="Strength Training" type="button">
+                    Complete Workout
+                </button>
+            </div>
+
+            <div class="card workout-card">
+                <h3>Cardio Workout</h3>
+                <p>Improve stamina with a cardio-focused routine.</p>
+                <p><strong>Duration:</strong> 30 minutes</p>
+
+                <button class="btn finish-workout"
+                    data-workout="Cardio Workout" type="button">
+                    Complete Workout
+                </button>
+            </div>
+
+        </div>
+
+        <!-- WORKOUT TIMER -->
+        <div class="card timer-card">
+            <h2>Workout Timer</h2>
+            <p>Manage your workout session with this timer.</p>
+
+            <div id="timerDisplay" class="timer-display">01:00</div>
+
+            <div class="timer-controls">
+                <button id="startTimer" class="btn" type="button">
+                    ▶ Start
+                </button>
+
+                <button id="pauseTimer" class="btn btn-outline" type="button">
+                    ⏸ Pause
+                </button>
+
+                <button id="resetTimer" class="btn btn-outline" type="button">
+                    ↻ Reset
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FITNESS CLASSES -->
+    <section class="section" id="classes">
+        <div class="section-heading">
+            <p class="tagline">TRAIN TOGETHER</p>
+            <h2>Fitness Classes</h2>
+        </div>
+
+        <div class="card-grid">
+
+            <div class="card">
+                <h3>Yoga</h3>
+                <p>Improve flexibility, balance and relaxation.</p>
+                <p><strong>Time:</strong> 8:00 AM</p>
+
+                <button class="btn select-class"
+                    data-class="Yoga" type="button">
+                    Book Yoga
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>Zumba</h3>
+                <p>Enjoy energetic dance-based fitness sessions.</p>
+                <p><strong>Time:</strong> 5:00 PM</p>
+
+                <button class="btn select-class"
+                    data-class="Zumba" type="button">
+                    Book Zumba
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>Strength Class</h3>
+                <p>Learn proper strength-training techniques.</p>
+                <p><strong>Time:</strong> 6:00 PM</p>
+
+                <button class="btn select-class"
+                    data-class="Strength Class" type="button">
+                    Book Class
+                </button>
+            </div>
+
+        </div>
+
+        <!-- CLASS BOOKING FORM -->
+        <div class="card form-card">
+            <h3>Book a Fitness Class</h3>
+
+            <form id="bookingForm">
+                <label for="customerName">Your Name</label>
+                <input type="text" id="customerName"
+                    name="customerName" placeholder="Enter your name" required>
+
+                <label for="classSelect">Select Class</label>
+                <select id="classSelect" name="classSelect" required>
+                    <option value="">Choose a class</option>
+                    <option value="Yoga">Yoga</option>
+                    <option value="Zumba">Zumba</option>
+                    <option value="Strength Class">Strength Class</option>
+                </select>
+
+                <button type="submit" class="btn">Confirm Booking</button>
+            </form>
+
+            <h3>Your Bookings</h3>
+            <div id="bookingList">
+                <p>No bookings yet.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- MEMBERSHIP -->
+    <section class="section" id="membership">
+        <div class="section-heading">
+            <p class="tagline">CHOOSE YOUR PLAN</p>
+            <h2>Membership Plans</h2>
+        </div>
+
+        <div class="card-grid">
+
+            <div class="card membership-card">
+                <h3>Basic</h3>
+                <h2>₹999 <small>/ month</small></h2>
+                <p>Gym access</p>
+                <p>Basic workout guidance</p>
+
+                <button class="btn select-plan"
+                    data-plan="Basic" type="button">
+                    Choose Basic
+                </button>
+            </div>
+
+            <div class="card membership-card featured">
+                <h3>Premium</h3>
+                <h2>₹1,999 <small>/ month</small></h2>
+                <p>Gym access</p>
+                <p>Workout guidance</p>
+                <p>Group fitness classes</p>
+
+                <button class="btn select-plan"
+                    data-plan="Premium" type="button">
+                    Choose Premium
+                </button>
+            </div>
+
+            <div class="card membership-card">
+                <h3>VIP</h3>
+                <h2>₹2,999 <small>/ month</small></h2>
+                <p>Gym access</p>
+                <p>Personal training sessions</p>
+                <p>Premium class access</p>
+
+                <button class="btn select-plan"
+                    data-plan="VIP" type="button">
+                    Choose VIP
+                </button>
+            </div>
+
+        </div>
+
+        <!-- MEMBERSHIP REGISTRATION -->
+        <div class="card form-card">
+            <h3>Membership Registration</h3>
+
+            <form id="membershipForm">
+                <label for="memberName">Full Name</label>
+                <input type="text" id="memberName"
+                    name="memberName" placeholder="Enter your full name" required>
+
+                <label for="memberEmail">Email Address</label>
+                <input type="email" id="memberEmail"
+                    name="memberEmail" placeholder="Enter your email" required>
+
+                <label for="planSelect">Membership Plan</label>
+                <select id="planSelect" name="planSelect" required>
+                    <option value="">Choose a plan</option>
+                    <option value="Basic">Basic</option>
+                    <option value="Premium">Premium</option>
+                    <option value="VIP">VIP</option>
+                </select>
+
+                <button type="submit" class="btn">
+                    Register Membership
+                </button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- BMI CALCULATOR -->
+    <section class="section" id="bmi">
+        <div class="section-heading">
+            <p class="tagline">KNOW YOUR NUMBERS</p>
+            <h2>BMI Calculator</h2>
+            <p>Enter your details to calculate BMI.</p>
+        </div>
+
+        <div class="card form-card">
+            <form id="bmiForm">
+                <label for="height">Height (cm)</label>
+                <input type="number" id="height"
+                    name="height" min="1" placeholder="e.g. 170" required>
+
+                <label for="weight">Weight (kg)</label>
+                <input type="number" id="weight"
+                    name="weight" min="1" placeholder="e.g. 65" required>
+
+                <button type="submit" class="btn">Calculate BMI</button>
+            </form>
+
+            <div id="bmiResult" aria-live="polite"></div>
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+        <div class="section-heading">
+            <p class="tagline">GET IN TOUCH</p>
+            <h2>Contact Us</h2>
+            <p>Have questions? Send us an enquiry.</p>
+        </div>
+
+        <div class="card form-card">
+            <form id="contactForm">
+                <label for="contactName">Your Name</label>
+                <input type="text" id="contactName"
+                    name="contactName" placeholder="Enter your name" required>
+
+                <label for="contactEmail">Email Address</label>
+                <input type="email" id="contactEmail"
+                    name="contactEmail" placeholder="Enter your email" required>
+
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage"
+                    name="contactMessage" rows="5"
+                    placeholder="Write your message..." required></textarea>
+
+                <button type="submit" class="btn">Send Enquiry</button>
+            </form>
+
+            <h3>Your Enquiries</h3>
+            <div id="enquiryList">
+                <p>No enquiries yet.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <h2>FitZone<span>.</span></h2>
+        <p>Your fitness journey starts here.</p>
+        <p>© 2026 FitZone Gym & Fitness Centre</p>
+
+        <a href="#home">Back to Top ↑</a>
+
+        <div class="footer-actions">
+            <button id="resetDemo" type="button" class="btn btn-outline">
+                Reset Demo Data
+            </button>
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
